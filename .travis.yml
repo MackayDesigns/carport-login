@@ -9,8 +9,6 @@ before_script:
 script: gulp test
 deploy:
   - provider: lambda
-    access_key_id: "${AWS_ACCESS_KEY}"
-    secret_access_key: "${AWS_SECRET_KEY}"
     function_name: "carport-login"
     role: "${AWS_LAMBDA_ROLE}"
     zip: "${TRAVIS_BUILD_DIR}/dist.zip"
