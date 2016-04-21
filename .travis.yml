@@ -7,8 +7,4 @@ cache:
 before_script:
   - npm install -g gulp
 script: gulp test
-deploy:
-  - provider: lambda
-    function_name: "carport-login"
-    role: "${AWS_LAMBDA_ROLE}"
-    zip: "${TRAVIS_BUILD_DIR}/dist.zip"
+after_success: gulp deploy
