@@ -4,6 +4,7 @@ var del = require('del');
 var install = require('gulp-install');
 var runSequence = require('run-sequence');
 var awsLambda = require("node-aws-lambda");
+var mocha = require('gulp-mocha');
 
 // deploy all source files that are not in the node_modules and test directories
 var deployFiles = [
@@ -45,4 +46,12 @@ gulp.task('deploy', (callback) => {
     ['clean'], ['copy', 'npm-install'], ['zip'], ['upload'],
     callback
   );
+});
+
+gulp.task('test', function () {
+  return gulp.src('test/*.js', {
+      read: false
+    })
+    // gulp-mocha needs filepaths so you can't have any plugins before it
+    .pipe(mocha());
 });
