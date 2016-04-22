@@ -13,6 +13,7 @@
     "joi": "^8.0.5",
     "lambda-time": "^0.4.2",
     "lodash": "^4.11.1",
+    "scrypt-for-humans": "^2.0.5",
     "uuid": "^2.0.2"
   },
   "repository": {
@@ -20,7 +21,7 @@
     "url": "git+https://github.com/jeffm13/carport-login.git"
   },
   "devDependencies": {
-    "aws-sdk": "^2.3.4",
+    "aws-sdk": "^2.3.5",
     "del": "^2.2.0",
     "dynamodb-doc": "^1.0.0",
     "gulp": "^3.9.1",
