@@ -1,7 +1,8 @@
 language: node_js
 node_js:
   - 4.3.2
-sudo: false
+sudo: required
+dist: trusty
 cache:
   directories: node_modules
 before_script:
@@ -21,4 +22,3 @@ deploy:
   runtime: nodejs4.3
   role: arn:aws:iam::710331364289:role/api_lambda_dynamo
   zip_file: dist.zip
-  
