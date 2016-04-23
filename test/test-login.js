@@ -106,7 +106,7 @@ describe('Login:@integration', () => {
     }
     Auth.handler(badPassword, context);
   });
-  it('should succeed when invoking with a valid username and password', (done) => {
+  it('should respond with a token when invoking with a valid username and password', (done) => {
     var goodLogin = {
       "params": {
         "querystring": {
@@ -120,13 +120,12 @@ describe('Login:@integration', () => {
       }
     };
     context.fail = (error) => {
-      expect(error).to.exist;
-      var obj = JSON.parse(error);
-      expect(obj.statusCode).to.equal(401);
+      expect(error).to.not.exist;
       done();
     };
     context.succeed = (response) => {
-      expect(response).to.not.exist;
+      expect(response).to.exist;
+      expect(response.token).to.exist;
       done();
     }
     Auth.handler(goodLogin, context);
