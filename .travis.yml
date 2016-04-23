@@ -22,3 +22,6 @@ deploy:
   runtime: nodejs4.3
   role: arn:aws:iam::710331364289:role/api_lambda_dynamo
   zip_file: dist.zip
+before_install:
+- openssl aes-256-cbc -K $encrypted_c3fce271baf6_key -iv $encrypted_c3fce271baf6_iv
+  -in carport-secret.json.enc -out carport-secret.json -d
